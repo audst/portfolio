@@ -23,18 +23,27 @@ export default function HomePage() {
           <h2 className="section-title">About Me</h2>
           <div className="grid md:grid-cols-5 gap-10">
             <div className="md:col-span-3 space-y-4 text-lg">
-              <p>Hello! I&apos;m Audrey, a computer science student with a growing focus on AI and data science, motivated by the intersection of technology and human connection...</p>
-              <p>I've had the privilege of gaining experience as a cloud developer volunteer and now as a QA Analyst Intern...</p>
-              <p>Here are a few technologies I’ve been working with recently:</p>
+              <p>
+                Hello! I&apos;m Audrey, a computer science student at UBC interested in how ideas become practice, where the theory of machine learning starts to take shape in real data and systems.
+              </p>
+
+              <p>
+                Through roles in cloud development, research support, and AI evaluation, I&apos;ve begun tracing how different perspectives connect, and I&apos;m curious about the new tools and understanding that can grow from that overlap.
+              </p>
+
+              {/* My current projects explore applied ML on climate data, sustainable computing through GPU energy efficiency analysis, and self-directed research in statistical learning theory. Alongside these, I enjoy polishing web and app deployments to make research outputs accessible and usable. */}
+
+              <p>Here are a few technologies I&apos;ve been working with recently:</p>
+
               <ul className="grid grid-cols-2 gap-x-6 gap-y-2 font-mono text-sm">
-                {["Next.js (App Router)","Tailwind CSS","TypeScript","Framer Motion","MDX","Python (ML/DL)"].map((t)=>(
+                {["Next.js","Tailwind CSS","TypeScript","PyTorch","AWS (Lambda, S3)","Python (ML/DL)"].map((t)=>(
                   <li key={t} className="flex items-center space-x-2"><span className="text-cyan-500 dark:text-cyan-400">▹</span><span>{t}</span></li>
                 ))}
               </ul>
             </div>
             <div className="md:col-span-2 relative group">
               <div className="relative rounded-lg overflow-hidden">
-                <img src="https://placehold.co/400x400/06b6d4/white?text=Audrey" alt="Audrey Tsung" className="w-full h-auto transition-transform duration-300 group-hover:scale-105" />
+                <img src="https://placehold.co/400x400/06b6d4/white?text=AT." alt="AT." className="w-full h-auto transition-transform duration-300 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-cyan-500/30 mix-blend-multiply group-hover:bg-transparent transition-all duration-300"></div>
               </div>
               <div className="absolute inset-0 border-2 border-cyan-500/50 rounded-lg -translate-x-3 -translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-300 -z-10"></div>
