@@ -9,5 +9,5 @@ export default function Hero() {
                 and write clear, practical notes!
             </h1>
         </section>
-    );
+   );
 }

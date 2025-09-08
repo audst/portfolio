@@ -1,27 +1,42 @@
-/* src/app/globals.css (Tailwind v4) */
+/* app/globals.css (Tailwind v4) */
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  color-scheme: dark; 
-}
+:root { color-scheme: dark; }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #0f172a; }
+::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #475569; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+html.light ::-webkit-scrollbar-track { background: #f1f5f9; }
+html.light ::-webkit-scrollbar-thumb { background: #cbd5e1; }
+html.light ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
+/* reveal animation classes */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease-out, transform .6s ease-out; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* utility “component classes” using @apply */
+.nav-link { @apply text-slate-900 dark:text-slate-300 hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors pb-1 border-b-2 border-transparent; }
+.mobile-nav-link { @apply block px-3 py-2 rounded-md text-base font-medium text-slate-900 dark:text-slate-200 hover:text-cyan-500 dark:hover:text-cyan-400; }
+.cta-button { @apply px-5 py-2.5 border border-cyan-500 dark:border-cyan-400 text-cyan-500 dark:text-cyan-400 font-mono text-sm rounded-md hover:bg-cyan-500/10 dark:hover:bg-cyan-400/10 transition-colors; }
+.social-icon { @apply text-slate-500 dark:text-slate-400 hover:text-cyan-500 dark:hover:text-cyan-400 transform hover:-translate-y-1 transition-all; }
+.section-title { @apply text-3xl font-bold text-slate-900 dark:text-slate-100 mb-8 flex items-center; }
+.section-title::after { content: ""; @apply h-px w-full bg-slate-300 dark:bg-slate-700 ml-4; }
+
+.project-card { @apply grid grid-cols-1 md:grid-cols-12 gap-6 items-center; }
+.project-image-container { @apply md:col-span-7 rounded-lg overflow-hidden shadow-lg; }
+.project-image { @apply w-full h-auto opacity-80 transition-all duration-300 group-hover:opacity-100 group-hover:scale-105; }
+.project-content { @apply md:col-span-5 relative; }
+.project-content.right { @apply md:text-right; }
+.project-content.left { @apply md:text-left; }
+.project-overline { @apply text-cyan-500 dark:text-cyan-400 font-mono text-sm mb-1; }
+.project-title { @apply text-2xl font-bold text-slate-900 dark:text-slate-100 mb-4; }
+.project-title a { @apply hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors; }
+.project-description { @apply bg-slate-200 dark:bg-slate-800 p-6 rounded-md shadow-md text-slate-800 dark:text-slate-300; }
+.project-tags { @apply font-mono text-sm mt-4 flex gap-x-4 gap-y-2 flex-wrap text-slate-600 dark:text-slate-400; }
+.project-tags.right { @apply justify-end; }
+.project-tags.left { @apply justify-start; }
+.project-links { @apply mt-4 flex gap-4; }
+.project-links.right { @apply justify-end; }
+.project-links.left { @apply justify-start; }

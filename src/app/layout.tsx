@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Header from "@/components/Header";
 import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"]});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "audrey tsung - portfolio",
-  description: "systems, ml/ai, and notes.",
+  title: "Audrey Tsung - portfolio",
+  description: "ml/ai · learning · data.",
 };
 
 export default function RootLayout({
@@ -25,25 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className="bg=[#0a0a0a] text-zinc-100 antialiased">
-        <header className="sticky top-0 z-50 border-b border-white/10 bg-black/60 backdrop-blur">
-          <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-            <Link href="/" className="font-mono text-teal-300">at.</Link>
-            <ul className="flex gap-6 text-sm text-zinc-300">
-              <li><Link className="hover:text-white" href="/about">about</Link></li>
-              <li><Link className="hover:text-white" href="/work">work</Link></li>
-              <li><Link className="hover:text-white" href="/notes">notes</Link></li>
-              <li><Link className="hover:text-white" href="/now">now</Link></li>
-              <li><Link className="hover:text-white" href="mailto:audreytsung2003@gmail.com">contact</Link></li>
-            </ul>
-          </nav>
-        </header>
-        {children}
-        <footer className="mt-24 border-t border-white/10">
-          <div className="mx-auto max-w-5xl px-6 py-10 text-sm text-zinc-400">
-            © {new Date().getFullYear()} audrey tsung
-          </div>
+    <html lang="en" className="dark scroll-smooth">
+      <body className={inter.className + " bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 antialiased selection:bg-cyan-500/30 selection:text-cyan-500"}>
+        <Header />
+        <main className="max-w-4xl mx-auto px-6 pt-20">{children}</main>
+        <footer className="text-center py-6">
+          <p className="font-mono text-sm text-slate-500 dark:text-slate-400">designed & built by Audrey Tsung</p>
         </footer>
       </body>
     </html>
