@@ -28,7 +28,7 @@ export default function Header() {
             <div className="max-w-5xl mx-auto px-6">
                 <nav className="flex justify-between items-center h-20">
                     <Link href="/#home" className="text-2xl font-bold text-slate-900 dark:text-white hover:text-cyan-500 dark:hover:text-cyan-400 transition-colors">
-                    Audrey Tsung
+                    AT.
                     </Link>
 
                     {/* desktop nav */}
