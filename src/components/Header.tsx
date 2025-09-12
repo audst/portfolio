@@ -9,18 +9,20 @@ export default function Header() {
 
     // init theme from localStorage/prefers-color-scheme
     useEffect(() => {
-        const preferredDark = 
-            (typeof window !== "undefined" && localStorage.getItem("theme") === "dark") ||
-            (!localStorage.getItem("theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
-        document.documentElement.classList.toggle("dark", preferredDark);
-        setDark(preferredDark);
+        if (typeof window !== "undefined") {
+            const storedTheme = localStorage.getItem("theme");
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            const isDark = storedTheme ? storedTheme === "dark" : prefersDark;
+            document.documentElement.classList.toggle("dark", isDark);
+            setDark(isDark);
+        }
     }, []);
 
     const toggleTheme = () => {
-        const next = !dark;
-        setDark(next);
-        document.documentElement.classList.toggle("dark", next);
-        localStorage.setItem("theme", next ? "dark" : "light");
+        const nextDark = !dark;
+        setDark(nextDark);
+        document.documentElement.classList.toggle("dark", nextDark);
+        localStorage.setItem("theme", nextDark ? "dark" : "light");
     };
 
     return (
